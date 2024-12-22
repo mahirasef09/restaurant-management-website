@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FaUserTie } from "react-icons/fa";
 import { Tooltip } from 'react-tooltip';
 import { IoMoon, IoSunny } from "react-icons/io5";
-import { AuthContext } from "../Provider/AuthProvider";
+import { AuthContext } from "../Providers/AuthProvider";
 import { RiRestaurant2Line } from "react-icons/ri";
 
 const NavBar = () => {

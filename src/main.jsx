@@ -10,7 +10,7 @@ import './index.css'
 import App from './App.jsx'
 import ErrorPage from './Pages/ErrorPage.jsx';
 import Home from './Layouts/Home.jsx';
-import AuthProvider from './Provider/AuthProvider.jsx';
+import AuthProvider from './Providers/AuthProvider.jsx';
 import Auth from './Layouts/Auth.jsx';
 import Login from './Pages/Login.jsx';
 import Register from './Pages/Register.jsx';
@@ -19,6 +19,9 @@ import Gallery from './Pages/Gallery.jsx';
 import MyFoods from './Pages/MyFoods.jsx';
 import AddFood from './Pages/AddFood.jsx';
 import MyOrders from './Pages/MyOrders.jsx';
+import SingleFood from './Pages/SingleFood.jsx';
+import FoodPurchase from './Pages/FoodPurchase.jsx';
+import PrivateRoute from './Routes/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -36,20 +39,36 @@ const router = createBrowserRouter([
         element: <AllFoods></AllFoods>
       },
       {
+        path: "/singleFood",
+        element: <SingleFood></SingleFood>
+      },
+      {
+        path: "/foodPurchase",
+        element: <PrivateRoute>
+          <FoodPurchase></FoodPurchase>
+        </PrivateRoute>
+      },
+      {
         path: "/gallery",
         element: <Gallery></Gallery>
       },
       {
         path: "/myFoods",
-        element: <MyFoods></MyFoods>
+        element: <PrivateRoute>
+          <MyFoods></MyFoods>
+        </PrivateRoute>
       },
       {
         path: "/addFood",
-        element: <AddFood></AddFood>
+        element: <PrivateRoute>
+          <AddFood></AddFood>
+        </PrivateRoute>
       },
       {
         path: "/myOrders",
-        element: <MyOrders></MyOrders>
+        element: <PrivateRoute>
+          <MyOrders></MyOrders>
+        </PrivateRoute>
       },
     ]
   },

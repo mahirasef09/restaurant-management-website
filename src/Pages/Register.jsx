@@ -3,7 +3,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import PageTitle from "./PageTitle";
-import { AuthContext } from "../Provider/AuthProvider";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Register = () => {
     const { createNewUser, setUser, setLoading, updateUserProfile } = useContext(AuthContext);

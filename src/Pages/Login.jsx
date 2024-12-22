@@ -4,7 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import PageTitle from "./PageTitle";
-import { AuthContext } from "../Provider/AuthProvider";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Login = () => {
     const { userLogin, signInUserWithGoogle, setUser, setLoading } = useContext(AuthContext);

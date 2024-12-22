@@ -1,10 +1,141 @@
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
 import PageTitle from "./PageTitle";
 
 const AddFood = () => {
+    const { user, state, setState } = useContext(AuthContext);
+
+    const handleAddEquipment = (e) => {
+        e.preventDefault();
+        const form = e.target;
+
+        const name = form.name.value;
+        const category = form.category.value;
+        const description = form.description.value;
+        const origin = form.origin.value;
+        const quantity = form.quantity.value;
+        const price = form.price.value;
+        const userEmail = form.userEmail.value;
+        const userName = form.userName.value;
+        const image = form.image.value;
+
+        const newFood = { name, category, description, origin, quantity, price, userEmail, userName, image }
+
+        // console.log(newFood);
+
+        // sending data to the server
+        fetch('', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newFood)
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                // console.log("Food Added Successfully in DB", data);
+
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Food Added Successfully in DB',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    });
+
+                    e.target.reset();
+
+                    setState(!state);
+                }
+            })
+    }
+
     return (
         <div>
             <PageTitle title="MahirRestaurant | Add Food"></PageTitle>
-            <h1>This is add food</h1>
+            <div className='lg:w-3/4 mx-auto bg-base-100'>
+                <div className="text-center pt-5">
+                    <h1 className="text-5xl font-extrabold">Add Food!</h1>
+                </div>
+                <div className="card w-full shrink-0">
+                    <form onSubmit={handleAddEquipment} className="card-body">
+                        {/* form first row */}
+                        <div className='flex flex-col lg:flex-row gap-5'>
+                            <div className="form-control flex-1">
+                                <label className="label">
+                                    <span className="label-text font-bold">Food Name</span>
+                                </label>
+                                <input type="text" name='name' placeholder="Food Name" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control flex-1">
+                                <label className="label">
+                                    <span className="label-text font-bold">Food Category</span>
+                                </label>
+                                <input type="text" name='category' placeholder="Food Category" className="input input-bordered" required />
+                            </div>
+                        </div>
+                        {/* form second row */}
+                        <div className='flex flex-col lg:flex-row gap-5'>
+                            <div className="form-control flex-1">
+                                <label className="label">
+                                    <span className="label-text font-bold">Food Description</span>
+                                </label>
+                                <input type="text" name='description' placeholder="Food Description" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control flex-1">
+                                <label className="label">
+                                    <span className="label-text font-bold">Food Origin</span>
+                                </label>
+                                <input type="text" name='origin' placeholder="Food Origin" className="input input-bordered" required />
+                            </div>
+                        </div>
+                        {/* form third row */}
+                        <div className='flex flex-col lg:flex-row gap-5'>
+                            <div className="form-control flex-1">
+                                <label className="label">
+                                    <span className="label-text font-bold">Quantity</span>
+                                </label>
+                                <input type="text" name='quantity' placeholder="Quantity" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control flex-1">
+                                <label className="label">
+                                    <span className="label-text font-bold">Price</span>
+                                </label>
+                                <input type="text" name='price' placeholder="Price" className="input input-bordered" required />
+                            </div>
+                        </div>
+                        {/* form fourth row */}
+                        <div className='flex flex-col lg:flex-row gap-5'>
+                            <div className="form-control flex-1">
+                                <label className="label">
+                                    <span className="label-text font-bold">Add By (Email)</span>
+                                </label>
+                                <input type="email" name='userEmail' defaultValue={user?.email} disabled placeholder="Add By (Email)" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control flex-1">
+                                <label className="label">
+                                    <span className="label-text font-bold">Add By (Name)</span>
+                                </label>
+                                <input type="text" name='userName' defaultValue={user?.displayName
+                                } disabled placeholder="Add By (Name)" className="input input-bordered" required />
+                            </div>
+                        </div>
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text font-bold">Food Image</span>
+                            </label>
+                            <input type="text" name='image' placeholder="Food Image" className="input input-bordered" required />
+
+                        </div>
+
+                        <div className="form-control mt-6">
+                            <button className="btn btn-neutral">Add Item</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     );
 };
