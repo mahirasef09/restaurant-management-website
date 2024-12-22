@@ -92,7 +92,7 @@ const NavBar = () => {
                                     </div>
                             }
                         </div>
-                        <button onClick={() => darkModeHandler()} className="btn btn-primary btn-sm">
+                        <button onClick={() => darkModeHandler()} className="btn btn-neutral btn-sm">
                             {
 
                                 dark && <IoSunny />

@@ -1,11 +1,18 @@
 
+import Banner from '../Pages/Banner';
+import Branch from '../Pages/Branch';
 import PageTitle from '../Pages/PageTitle';
+import TopFoods from '../Pages/TopFoods';
+import WhyUs from '../Pages/WhyUs';
 
 const Home = () => {
     return (
         <div>
             <PageTitle title="MahirRestaurant | Home"></PageTitle>
-            <h1>This is Home</h1>
+            <Banner></Banner>
+            <TopFoods></TopFoods>
+            <WhyUs></WhyUs>
+            <Branch></Branch>
         </div>
     );
 };

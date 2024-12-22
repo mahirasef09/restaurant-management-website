@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { Outlet } from 'react-router-dom'
 import Footer from './Pages/Footer'
@@ -14,7 +12,7 @@ function App() {
       <header>
         <NavBar></NavBar>
       </header>
-      <main>
+      <main className='w-11/12 mx-auto'>
         <Outlet></Outlet>
       </main>
       <footer>
