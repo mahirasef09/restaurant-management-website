@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const AddFood = () => {
     const { user, state, setState } = useContext(AuthContext);
 
-    const handleAddEquipment = (e) => {
+    const handleAddFood = (e) => {
         e.preventDefault();
         const form = e.target;
 
@@ -60,7 +60,7 @@ const AddFood = () => {
                     <h1 className="text-5xl font-extrabold">Add Food!</h1>
                 </div>
                 <div className="card w-full shrink-0">
-                    <form onSubmit={handleAddEquipment} className="card-body">
+                    <form onSubmit={handleAddFood} className="card-body">
                         {/* form first row */}
                         <div className='flex flex-col lg:flex-row gap-5'>
                             <div className="form-control flex-1">
