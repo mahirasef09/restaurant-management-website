@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import PageTitle from "./PageTitle";
+import Swal from "sweetalert2";
 
 const AddFood = () => {
     const { user, state, setState } = useContext(AuthContext);
@@ -24,7 +25,7 @@ const AddFood = () => {
         // console.log(newFood);
 
         // sending data to the server
-        fetch('', {
+        fetch('http://localhost:5000/foods', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
