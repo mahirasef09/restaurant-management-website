@@ -3,9 +3,12 @@ import { useContext } from 'react';
 import PageTitle from './PageTitle';
 import { AuthContext } from '../Providers/AuthProvider';
 import moment from 'moment';
+import { useLoaderData } from 'react-router-dom';
 
 const FoodPurchase = () => {
     const { user, state, setState } = useContext(AuthContext);
+    const product = useLoaderData();
+    const {_id, image, category, name, description, quantity, price} = product;
     
         const handleAddEquipment = (e) => {
             e.preventDefault();
@@ -65,7 +68,7 @@ const FoodPurchase = () => {
                                 <label className="label">
                                     <span className="label-text font-bold">Food Name</span>
                                 </label>
-                                <input type="text" name='name' placeholder="Food Name" className="input input-bordered" required />
+                                <input type="text" name='name' defaultValue={name} placeholder="Food Name" className="input input-bordered" required />
                             </div>
                             <div className="form-control flex-1">
                                 <label className="label">
@@ -80,13 +83,13 @@ const FoodPurchase = () => {
                                 <label className="label">
                                     <span className="label-text font-bold">Quantity</span>
                                 </label>
-                                <input type="text" name='quantity' placeholder="Quantity" className="input input-bordered" required />
+                                <input type="text" name='quantity' defaultValue={quantity} placeholder="Quantity" className="input input-bordered" required />
                             </div>
                             <div className="form-control flex-1">
                                 <label className="label">
                                     <span className="label-text font-bold">Price</span>
                                 </label>
-                                <input type="text" name='price' placeholder="Price" className="input input-bordered" required />
+                                <input type="text" name='price' defaultValue={price} placeholder="Price" className="input input-bordered" required />
                             </div>
                         </div>
                         {/* form fourth row */}
