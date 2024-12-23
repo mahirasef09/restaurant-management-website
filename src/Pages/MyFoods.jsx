@@ -11,7 +11,7 @@ const MyFoods = () => {
             fetch(`http://localhost:5000/myFoods/?email=${user?.email}`)
                 .then(res => res.json())
                 .then(data => setData(data))
-        }, [user.email, state]);
+        }, [user?.email, state]);
 
     return (
         <div>

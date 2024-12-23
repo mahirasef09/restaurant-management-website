@@ -23,7 +23,7 @@ const UpdateFood = () => {
             const userName = form.userName.value;
             const image = form.image.value;
     
-            const newFood = { name, category, description, origin, quantity, price, userEmail, userName, image }
+            const updatedFood = { name, category, description, origin, quantity, price, userEmail, userName, image }
     
             // console.log(newFood);
     
@@ -33,14 +33,14 @@ const UpdateFood = () => {
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify(newFood)
+                body: JSON.stringify(updatedFood)
             })
                 .then(res => res.json())
                 .then(data => {
     
                     // console.log("Food Updated Successfully in DB", data);
     
-                    if (data.insertedId) {
+                    if (data.modifiedCount) {
                         Swal.fire({
                             title: 'Success!',
                             text: 'Food Updated Successfully in DB',

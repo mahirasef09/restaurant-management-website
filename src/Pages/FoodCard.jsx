@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 
 const FoodCard = ({product}) => {
-    const {selectedProducts, setSelectedProducts, state, setState} = useContext(AuthContext);
+    const {state, setState} = useContext(AuthContext);
     const {_id, image, category, name, description, quantity, price} = product;
 
     const handleDelete = (_id) => {
@@ -30,12 +30,9 @@ const FoodCard = ({product}) => {
                         if (data.deletedCount) {
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your Item has been deleted.",
+                                text: "Your Food Item has been deleted.",
                                 icon: "success"
                             });
-
-                            // const remaining = selectedProducts.filter(p => p._id !== _id);
-                            // setSelectedProducts(remaining);
 
                             setState(!state);
                         }

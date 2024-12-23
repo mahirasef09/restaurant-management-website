@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <AllFoods></AllFoods>
       },
       {
-        path: "/singleFood",
+        path: "/singleFood/:id",
         element: <SingleFood></SingleFood>
       },
       {
