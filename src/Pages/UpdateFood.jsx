@@ -19,11 +19,11 @@ const UpdateFood = () => {
             const origin = form.origin.value;
             const quantity = form.quantity.value;
             const price = form.price.value;
-            const userEmail = form.userEmail.value;
-            const userName = form.userName.value;
+            const adderEmail = form.adderEmail.value;
+            const adderName = form.adderName.value;
             const image = form.image.value;
     
-            const updatedFood = { name, category, description, origin, quantity, price, userEmail, userName, image }
+            const updatedFood = { name, category, description, origin, quantity, price, adderEmail, adderName, image }
     
             // console.log(newFood);
     
@@ -113,13 +113,13 @@ const UpdateFood = () => {
                                 <label className="label">
                                     <span className="label-text font-bold">Add By (Email)</span>
                                 </label>
-                                <input type="email" name='userEmail' defaultValue={userEmail} disabled placeholder="Add By (Email)" className="input input-bordered" required />
+                                <input type="email" name='adderEmail' defaultValue={userEmail} disabled placeholder="Add By (Email)" className="input input-bordered" required />
                             </div>
                             <div className="form-control flex-1">
                                 <label className="label">
                                     <span className="label-text font-bold">Add By (Name)</span>
                                 </label>
-                                <input type="text" name='userName' defaultValue={userName
+                                <input type="text" name='adderName' defaultValue={userName
                                 } disabled placeholder="Add By (Name)" className="input input-bordered" required />
                             </div>
                         </div>
