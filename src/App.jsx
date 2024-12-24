@@ -8,7 +8,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div>
+    <div className='bg-white dark:bg-black space-y-3'>
       <header>
         <NavBar></NavBar>
       </header>

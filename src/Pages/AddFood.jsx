@@ -19,8 +19,9 @@ const AddFood = () => {
         const adderEmail = form.adderEmail.value;
         const adderName = form.adderName.value;
         const image = form.image.value;
+        const purchaseCount = 0;
 
-        const newFood = { name, category, description, origin, quantity, price, adderEmail, adderName, image }
+        const newFood = { name, category, description, origin, quantity, price, adderEmail, adderName, image, purchaseCount }
 
         // console.log(newFood);
 
