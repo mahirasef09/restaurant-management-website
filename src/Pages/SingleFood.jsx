@@ -3,7 +3,7 @@ import PageTitle from "./PageTitle";
 
 const SingleFood = () => {
     const product = useLoaderData();
-    const { _id, image, category, name, description, quantity, price, userName, userEmail } = product;
+    const { _id, image, category, name, description, quantity, price, adderName, adderEmail, purchaseCount } = product;
 
     return (
         <div>
@@ -21,8 +21,9 @@ const SingleFood = () => {
                         <p><span className="font-bold">Description:</span> {description}</p>
                         <p><span className="font-bold">Quantity:</span> {quantity}</p>
                         <p><span className="font-bold">Price:</span> ${price}</p>
-                        <p><span className="font-bold">Added by:</span> {userName}</p>
-                        <p><span className="font-bold">Email of the person who added:</span> {userEmail}</p>
+                        <p><span className="font-bold">Added by:</span> {adderName}</p>
+                        <p><span className="font-bold">Email of the person who added:</span> {adderEmail}</p>
+                        <p><span className="font-bold">Purchase Number:</span> {purchaseCount}</p>
                         <div className="card-actions justify-end">
                             <Link to={`/foodPurchase/${_id}`}>
                                 <button className="btn btn-primary">Purchase</button>

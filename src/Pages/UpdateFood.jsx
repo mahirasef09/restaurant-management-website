@@ -7,7 +7,7 @@ import { useLoaderData } from "react-router-dom";
 const UpdateFood = () => {
     const { state, setState } = useContext(AuthContext);
     const product = useLoaderData();
-    const { _id, name, category, description, origin, quantity,  price, userName, userEmail, image } = product;
+    const { _id, name, category, description, origin, quantity,  price, adderName, adderEmail, image } = product;
 
     const handleUpdateFood = (e) => {
             e.preventDefault();
@@ -113,13 +113,13 @@ const UpdateFood = () => {
                                 <label className="label">
                                     <span className="label-text font-bold">Add By (Email)</span>
                                 </label>
-                                <input type="email" name='adderEmail' defaultValue={userEmail} disabled placeholder="Add By (Email)" className="input input-bordered" required />
+                                <input type="email" name='adderEmail' defaultValue={adderEmail} disabled placeholder="Add By (Email)" className="input input-bordered" required />
                             </div>
                             <div className="form-control flex-1">
                                 <label className="label">
                                     <span className="label-text font-bold">Add By (Name)</span>
                                 </label>
-                                <input type="text" name='adderName' defaultValue={userName
+                                <input type="text" name='adderName' defaultValue={adderName
                                 } disabled placeholder="Add By (Name)" className="input input-bordered" required />
                             </div>
                         </div>

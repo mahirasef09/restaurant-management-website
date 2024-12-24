@@ -153,7 +153,9 @@ const FoodPurchase = () => {
 
                         <div className="form-control mt-6">
                             {
-                                err == true ? <button className="btn btn-disabled">Purchase</button> : <button className="btn btn-neutral">Purchase</button>
+                                err == true ? <button className="btn btn-disabled">Purchase</button> :
+                                        <button className="btn btn-neutral">Purchase</button>
+                                    
                             }
                         </div>
                     </form>
