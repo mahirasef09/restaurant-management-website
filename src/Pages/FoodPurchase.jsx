@@ -5,9 +5,11 @@ import { AuthContext } from '../Providers/AuthProvider';
 import moment from 'moment';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { useState } from 'react';
 
 const FoodPurchase = () => {
     const { user, state, setState } = useContext(AuthContext);
+    const [err, setErr] = useState(false);
     const product = useLoaderData();
     const { _id, name, quantity, price, adderEmail } = product;
 
@@ -34,17 +36,35 @@ const FoodPurchase = () => {
 
 
         if (quantity == 0) {
-            alert('Item is not available');
+            setErr(true);
+            Swal.fire({
+                title: 'Error!',
+                text: 'Item is not available',
+                icon: 'error',
+                confirmButtonText: 'Oops'
+            });
             return
         }
 
         if (purchaseQuantity > quantity) {
-            alert('Item is not sufficient in amount');
+            setErr(true);
+            Swal.fire({
+                title: 'Error!',
+                text: 'Item is not sufficient in amount',
+                icon: 'error',
+                confirmButtonText: 'Oops'
+            });
             return
         }
 
         if (user?.email == adderEmail) {
-            alert('Item can not be purchased because you added it');
+            setErr(true);
+            Swal.fire({
+                title: 'Error!',
+                text: 'Item can not be purchased because you added it',
+                icon: 'error',
+                confirmButtonText: 'Oops'
+            });
             return
         }
 
@@ -67,7 +87,7 @@ const FoodPurchase = () => {
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     });
-
+                    e.target.reset();
                     setState(!state);
                 }
             })
@@ -133,7 +153,7 @@ const FoodPurchase = () => {
 
                         <div className="form-control mt-6">
                             {
-                                quantity == 0 ? <button className="btn btn-neutral disabled:">Purchase</button> : <button className="btn btn-neutral">Purchase</button>
+                                err == true ? <button className="btn btn-disabled">Purchase</button> : <button className="btn btn-neutral">Purchase</button>
                             }
                         </div>
                     </form>
