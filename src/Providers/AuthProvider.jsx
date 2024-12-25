@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from 'react';
 import { auth } from '../Firebase/firebase.init';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
@@ -10,31 +11,7 @@ const AuthProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [selectedProducts, setSelectedProducts] = useState([]);
     const [state, setState] = useState(false);
-
-    const handleSelectedProduct = (product) => {
-        const isExist = selectedProducts.find(p => p._id === product._id);
-        if (isExist) {
-            Swal.fire({
-                title: 'Error!',
-                text: 'Item Already Exist',
-                icon: 'error',
-                confirmButtonText: 'Oops'
-            });
-        }
-
-        else {
-            Swal.fire({
-                title: 'Success!',
-                text: 'Item Added Successfully',
-                icon: 'success',
-                confirmButtonText: 'Cool'
-            });
-            const newProduct = [...selectedProducts, product];
-            setSelectedProducts(newProduct);
-        }
-    }
 
     const createNewUser = (email, password) => {
         setLoading(true);
@@ -70,7 +47,24 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
-            setLoading(false);
+
+            if (currentUser?.email) {
+                const user = { email: currentUser.email }
+
+                axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
+                .then(res => {
+                    console.log('login token',res.data);
+                    setLoading(false);
+                })
+            }
+            else{
+                axios.post('http://localhost:5000/logout', {}, {withCredentials: true})
+                .then(res => {
+                    console.log('logout', res.data);
+                    setLoading(false);
+                })
+            }
+
         });
 
         return () => {
@@ -85,11 +79,8 @@ const AuthProvider = ({ children }) => {
         setUser,
         loading,
         setLoading,
-        selectedProducts,
-        setSelectedProducts,
         state,
         setState,
-        handleSelectedProduct,
         createNewUser,
         updateUserProfile,
         userLogin,

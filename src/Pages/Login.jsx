@@ -70,7 +70,7 @@ const Login = () => {
     return (
         <div>
             <PageTitle title="MahirRestaurant | Login"></PageTitle>
-            <div className='min-h-screen flex justify-center items-center'>
+            <div className='min-h-screen bg-white dark:bg-black flex justify-center items-center'>
                 <div className="card bg-base-100 w-full max-w-lg shrink-0 p-10 rounded-3xl shadow-2xl">
                     <h3 className='text-2xl font-extrabold text-center'>Welcome Back!</h3>
                     <form onSubmit={handleSubmit} className="card-body">

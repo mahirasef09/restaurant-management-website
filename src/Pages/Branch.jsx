@@ -16,7 +16,7 @@ const Branch = () => {
                     <div className="card-body items-center text-center">
                         <h2 className="card-title font-extrabold">Kawran Bazar</h2>
                         <div className="card-actions">
-                            <button className="btn btn-primary">See <FaArrowRightLong /></button>
+                            <button className="btn btn-accent">See <FaArrowRightLong /></button>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@ const Branch = () => {
                     <div className="card-body items-center text-center">
                         <h2 className="card-title font-extrabold">Tongi</h2>
                         <div className="card-actions">
-                            <button className="btn btn-primary">See <FaArrowRightLong /></button>
+                            <button className="btn btn-accent">See <FaArrowRightLong /></button>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@ const Branch = () => {
                     <div className="card-body items-center text-center">
                         <h2 className="card-title font-extrabold">Dhanmondi</h2>
                         <div className="card-actions">
-                            <button className="btn btn-primary">See <FaArrowRightLong /></button>
+                            <button className="btn btn-accent">See <FaArrowRightLong /></button>
                         </div>
                     </div>
                 </div>

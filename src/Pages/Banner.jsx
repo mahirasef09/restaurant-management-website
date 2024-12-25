@@ -14,7 +14,7 @@ const Banner = () => {
                         <h1 className="mb-5 text-5xl font-bold">Traditional Foods in the best taste and price.</h1>
                         <p className="mb-5">Savor Every Bite at Mahir Restaurant.
                         Discover bold flavors, fresh ingredients, and unforgettable dining experiences. Reserve your table today!</p>
-                        <button className="btn btn-primary">
+                        <button className="btn btn-accent">
                             <Link to={'/allFoods'}>
                                 All Foods
                             </Link>

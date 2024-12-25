@@ -10,7 +10,7 @@ const AllFoods = () => {
     const [foodData, setFoodData] = useState([]);
     const [searchItem, setSearchItem] = useState([]);
     const [searchFoodName, setSearchFoodName] = useState("");
-    
+
 
     useEffect(() => {
         fetch('http://localhost:5000/foods')
@@ -47,10 +47,12 @@ const AllFoods = () => {
                 }
             </div>
 
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 my-5'>
-                {
-                    foodData.map(product => <AllFoodsCard key={product._id} product={product}></AllFoodsCard>)
-                }
+            <div className='flex justify-center'>
+                <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 my-5'>
+                    {
+                        foodData.map(product => <AllFoodsCard key={product._id} product={product}></AllFoodsCard>)
+                    }
+                </div>
             </div>
         </div>
     );
