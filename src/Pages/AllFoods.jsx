@@ -36,6 +36,11 @@ const AllFoods = () => {
     return (
         <div className='w-11/12 mx-auto'>
             <PageTitle title="MahirRestaurant | All Foods"></PageTitle>
+
+            <div className='bg-accent dark:bg-black h-16 mb-5'>
+                <h2 className="text-black dark:text-white text-center text-5xl font-extrabold">All Food Items</h2>
+            </div>
+
             <form onSubmit={handleSearch} className="flex justify-center gap-3 my-5">
                 <input type="text" name="searchInputItem" placeholder="Search" className="input input-bordered w-80" />
                 <button className='btn btn-neutral'><IoSearchOutline /></button>

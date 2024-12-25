@@ -18,7 +18,7 @@ const useAxiosSecure = () => {
             return response;
         },
             error => {
-                console.log('error caught in interceptors', error);
+                // console.log('error caught in interceptors', error);
 
                 if (error.status === 401 || error.status === 403) {
                     // console.log('Need to logout the user');
@@ -28,7 +28,13 @@ const useAxiosSecure = () => {
                             navigate('/auth/login');
                         })
                         .catch(error => {
-                            console.log(error);
+                            // console.log(error);
+                            Swal.fire({
+                                title: 'Error!',
+                                text: error,
+                                icon: 'error',
+                                confirmButtonText: 'Oops'
+                            });
                         })
                 }
 

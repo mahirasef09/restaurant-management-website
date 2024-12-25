@@ -53,14 +53,14 @@ const AuthProvider = ({ children }) => {
 
                 axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
                 .then(res => {
-                    console.log('login token',res.data);
+                    // console.log('login token',res.data);
                     setLoading(false);
                 })
             }
             else{
                 axios.post('http://localhost:5000/logout', {}, {withCredentials: true})
                 .then(res => {
-                    console.log('logout', res.data);
+                    // console.log('logout', res.data);
                     setLoading(false);
                 })
             }
