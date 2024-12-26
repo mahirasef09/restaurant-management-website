@@ -13,7 +13,7 @@ const AllFoods = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/foods')
+        fetch('https://restaurant-management-server-flax.vercel.app/foods')
             .then(res => res.json())
             .then(data => setFoodData(data))
     }, [state]);
@@ -28,7 +28,7 @@ const AllFoods = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/searchFoods/?name=${searchFoodName}`)
+        fetch(`https://restaurant-management-server-flax.vercel.app/searchFoods/?name=${searchFoodName}`)
             .then(res => res.json())
             .then(data => setSearchItem(data))
     }, [state]);
@@ -37,7 +37,7 @@ const AllFoods = () => {
         <div className='w-11/12 mx-auto'>
             <PageTitle title="MahirRestaurant | All Foods"></PageTitle>
 
-            <div className='bg-accent dark:bg-black h-16 mb-5'>
+            <div className='bg-accent dark:bg-black rounded-tl-full rounded-br-full h-16 mb-5'>
                 <h2 className="text-black dark:text-white text-center text-5xl font-extrabold">All Food Items</h2>
             </div>
 

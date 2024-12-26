@@ -11,7 +11,7 @@ const MyFoods = () => {
 
     useEffect(() => {
 
-        // fetch(`http://localhost:5000/myFoods/?email=${user?.email}`)
+        // fetch(`https://restaurant-management-server-flax.vercel.app/myFoods/?email=${user?.email}`)
         //     .then(res => res.json())
         //     .then(data => setData(data))
 
@@ -23,6 +23,9 @@ const MyFoods = () => {
     return (
         <div>
             <PageTitle title="MahirRestaurant | My Foods"></PageTitle>
+            <div className='bg-accent dark:bg-black rounded-tl-full rounded-br-full h-16 mb-5'>
+                <h2 className="text-black dark:text-white text-center text-5xl font-extrabold">My Food Items</h2>
+            </div>
             <div className="flex justify-center">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 my-5">
                     {

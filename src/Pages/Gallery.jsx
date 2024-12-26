@@ -2,14 +2,19 @@ import Lightbox from 'yet-another-react-lightbox';
 import "yet-another-react-lightbox/styles.css";
 import PageTitle from './PageTitle';
 import { useState } from 'react';
+import { useRef } from 'react';
+import { Download, Share, Slideshow, Zoom } from 'yet-another-react-lightbox/plugins';
+
 
 const Gallery = () => {
     const [open, setOpen] = useState(false);
+    const zoomRef = useRef(null);
+    const slideshowRef = useRef(null);
 
     return (
         <div>
             <PageTitle title="MahirRestaurant | Gallery"></PageTitle>
-            <div className='bg-accent dark:bg-black h-16 mb-5'>
+            <div className='bg-accent dark:bg-black rounded-tl-full rounded-br-full h-16 mb-5'>
                 <h2 className="text-black dark:text-white text-center text-5xl font-extrabold">My Restaurant Gallery</h2>
             </div>
 
@@ -51,6 +56,9 @@ const Gallery = () => {
             <Lightbox
                 open={open}
                 close={() => setOpen(false)}
+                plugins={[Zoom, Download, Share, Slideshow]}
+                zoom={{ ref: zoomRef }}
+                slideshow={{ ref: slideshowRef }}
                 slides={[
                     { src: "https://i.ibb.co.com/JyvZgQ1/Gallery1.jpg" },
                     { src: "https://i.ibb.co.com/P6Vm6sv/Gallery2.jpg" },

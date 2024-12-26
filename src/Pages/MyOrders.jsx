@@ -3,18 +3,18 @@ import PageTitle from "./PageTitle";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
-import { Link } from "react-router-dom";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const MyOrders = () => {
-    const { user, state } = useContext(AuthContext);
+    const { user, state, setState } = useContext(AuthContext);
     const [foodData, setFoodData] = useState([]);
     const axiosSecure = useAxiosSecure();
 
 
     useEffect(() => {
 
-        // fetch('http://localhost:5000/myOrders')
+        // fetch('https://restaurant-management-server-flax.vercel.app/myOrders')
         //     .then(res => res.json())
         //     .then(data => setFoodData(data))
 
@@ -23,9 +23,45 @@ const MyOrders = () => {
 
     }, [state]);
 
+    const handleDeletePurchased = (_id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    fetch(`https://restaurant-management-server-flax.vercel.app/myOrders/${_id}`, {
+                        method: 'DELETE'
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+
+                            // console.log(data);
+
+                            if (data.deletedCount) {
+                                Swal.fire({
+                                    title: "Deleted!",
+                                    text: "Your Purchased Food Item has been deleted.",
+                                    icon: "success"
+                                });
+                                setState(!state);
+                            }
+                        })
+                }
+            });
+    }
+
     return (
         <div>
             <PageTitle title="MahirRestaurant | My Orders"></PageTitle>
+            <div className='bg-accent dark:bg-black rounded-tl-full rounded-br-full h-16 mb-5'>
+                <h2 className="text-black dark:text-white text-center text-5xl font-extrabold">My Ordered Items</h2>
+            </div>
             <div>
                 {
                     foodData.length == 0 ?
@@ -72,9 +108,7 @@ const MyOrders = () => {
                                             <td>{product.purchaseQuantity}</td>
                                             <td>{product.purchasePrice}</td>
                                             <td>
-                                                <Link to={`/singleFood/${product.food_id}`}>
-                                                    <button className="btn btn-sm btn-neutral">View Details</button>
-                                                </Link>
+                                                <button onClick={()=>handleDeletePurchased(product._id)} className="btn btn-sm btn-neutral">Delete</button>
                                             </td>
                                         </tr>)
                                     }

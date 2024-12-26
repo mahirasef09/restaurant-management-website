@@ -43,7 +43,7 @@ const FoodPurchase = () => {
                 icon: 'error',
                 confirmButtonText: 'Oops'
             });
-            return
+            return;
         }
 
         if (purchaseQuantity > quantity) {
@@ -54,7 +54,7 @@ const FoodPurchase = () => {
                 icon: 'error',
                 confirmButtonText: 'Oops'
             });
-            return
+            return;
         }
 
         if (user?.email == adderEmail) {
@@ -65,10 +65,10 @@ const FoodPurchase = () => {
                 icon: 'error',
                 confirmButtonText: 'Oops'
             });
-            return
+            return;
         }
 
-        fetch(`http://localhost:5000/purchasedFoods`, {
+        fetch(`https://restaurant-management-server-flax.vercel.app/purchasedFoods`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

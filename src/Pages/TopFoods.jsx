@@ -11,7 +11,7 @@ const TopFoods = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/foods')
+        fetch('https://restaurant-management-server-flax.vercel.app/foods')
             .then(res => res.json())
             .then(data => setFoodData(data))
     }, [state]);

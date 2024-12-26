@@ -47,6 +47,7 @@ const Login = () => {
         signInUserWithGoogle()
             .then(result => {
                 const currentUser = result.user;
+                // console.log(currentUser);
                 setUser(currentUser);
                 Swal.fire({
                     title: 'Success!',

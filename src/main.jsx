@@ -42,14 +42,14 @@ const router = createBrowserRouter([
       {
         path: "/singleFood/:id",
         element: <SingleFood></SingleFood>,
-        loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+        loader: ({params}) => fetch(`https://restaurant-management-server-flax.vercel.app/foods/${params.id}`)
       },
       {
         path: "/foodPurchase/:id",
         element: <PrivateRoute>
           <FoodPurchase></FoodPurchase>
         </PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+        loader: ({params}) => fetch(`https://restaurant-management-server-flax.vercel.app/foods/${params.id}`)
       },
       {
         path: "/gallery",
@@ -78,7 +78,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <UpdateFood></UpdateFood>
         </PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+        loader: ({params}) => fetch(`https://restaurant-management-server-flax.vercel.app/foods/${params.id}`)
       },
     ]
   },

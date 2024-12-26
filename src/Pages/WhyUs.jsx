@@ -16,7 +16,7 @@ const WhyUs = () => {
                             <p className="text-2xl py-6">
                                 At our restaurant, we believe exceptional dining goes beyond great food. Here’s what sets us apart: Unmatched Quality, Innovative Flavors, Exceptional Service, Inviting Ambiance, Community Commitment...etc
                             </p>
-                            <button className="btn btn-primary">
+                            <button className="btn btn-accent">
                                 <Link to={'/allFoods'}>
                                     Get Started
                                 </Link>
