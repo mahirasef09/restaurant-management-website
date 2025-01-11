@@ -23,7 +23,7 @@ const TopFoods = () => {
         <div>
             <h2 className="text-black dark:text-white text-center text-5xl font-extrabold my-5">Top Foods</h2>
             <div className="flex justify-center">
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 my-5'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 my-5'>
                     {
                         limitedFoodData.map(product => <AllFoodsCard key={product._id} product={product}></AllFoodsCard>)
                     }
