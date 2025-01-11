@@ -43,7 +43,7 @@ const FoodCard = ({product}) => {
 
     return (
         <div>
-            <div className="card bg-gray-100 w-80 h-[500px] shadow-xl p-3">
+            <div className="card bg-gray-100 w-64 h-[500px] shadow-xl p-3">
                 <figure className="px-10 pt-10">
                     <img
                         src={image}

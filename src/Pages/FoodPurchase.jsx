@@ -96,7 +96,7 @@ const FoodPurchase = () => {
     }
 
     return (
-        <div>
+        <div className='min-h-screen'>
             <PageTitle title="MahirRestaurant | Food Purchase"></PageTitle>
             <div className='lg:w-3/4 mx-auto bg-base-100'>
                 <div className="text-center pt-5">
