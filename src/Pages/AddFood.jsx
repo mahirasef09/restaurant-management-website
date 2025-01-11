@@ -3,6 +3,7 @@ import { AuthContext } from "../Providers/AuthProvider";
 import PageTitle from "./PageTitle";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const AddFood = () => {
     const { user, state, setState } = useContext(AuthContext);
@@ -54,12 +55,12 @@ const AddFood = () => {
                 }
             })
 
-            // axiosSecure.post(`/foods`)
-            // .then(res => setData(res.data))
+        // axiosSecure.post(`/foods`)
+        // .then(res => setData(res.data))
     }
 
     return (
-        <div>
+        <div className="min-h-screen">
             <PageTitle title="MahirRestaurant | Add Food"></PageTitle>
             <div className='lg:w-3/4 mx-auto bg-base-100'>
                 <div className="text-center pt-5">
@@ -136,7 +137,7 @@ const AddFood = () => {
                         </div>
 
                         <div className="form-control mt-6">
-                            <button className="btn btn-neutral">Add Item</button>
+                                <button className="btn btn-neutral">Add Item</button>
                         </div>
                     </form>
                 </div>

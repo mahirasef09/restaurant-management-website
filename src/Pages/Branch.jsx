@@ -3,7 +3,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 const Branch = () => {
     return (
         <div>
-            <h2 className="mb-10 text-black dark:text-white text-center text-5xl font-extrabold">Our Branches</h2>
+            <h2 className="my-10 text-black dark:text-white text-center text-5xl font-extrabold">Our Branches</h2>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
                 {/* Card-1 */}
                 <div className="card bg-gray-100 shadow-xl p-3">

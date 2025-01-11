@@ -7,7 +7,7 @@ import WhyUs from '../Pages/WhyUs';
 
 const Home = () => {
     return (
-        <div>
+        <div className='min-h-screen'>
             <PageTitle title="MahirRestaurant | Home"></PageTitle>
             <Banner></Banner>
             <TopFoods></TopFoods>

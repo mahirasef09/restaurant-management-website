@@ -17,13 +17,13 @@ const TopFoods = () => {
     }, [state]);
 
     const foodDataSorted = [...foodData].sort((a, b) => b.purchaseCount - a.purchaseCount);
-    const limitedFoodData = foodDataSorted.slice(0, 6);
+    const limitedFoodData = foodDataSorted.slice(0, 8);
 
     return (
         <div>
             <h2 className="text-black dark:text-white text-center text-5xl font-extrabold my-5">Top Foods</h2>
             <div className="flex justify-center">
-                <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 my-5'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 my-5'>
                     {
                         limitedFoodData.map(product => <AllFoodsCard key={product._id} product={product}></AllFoodsCard>)
                     }

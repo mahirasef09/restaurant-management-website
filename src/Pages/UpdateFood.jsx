@@ -7,54 +7,54 @@ import { useLoaderData } from "react-router-dom";
 const UpdateFood = () => {
     const { state, setState } = useContext(AuthContext);
     const product = useLoaderData();
-    const { _id, name, category, description, origin, quantity,  price, adderName, adderEmail, image } = product;
+    const { _id, name, category, description, origin, quantity, price, adderName, adderEmail, image } = product;
 
     const handleUpdateFood = (e) => {
-            e.preventDefault();
-            const form = e.target;
-    
-            const name = form.name.value;
-            const category = form.category.value;
-            const description = form.description.value;
-            const origin = form.origin.value;
-            const quantity = form.quantity.value;
-            const price = form.price.value;
-            const adderEmail = form.adderEmail.value;
-            const adderName = form.adderName.value;
-            const image = form.image.value;
-    
-            const updatedFood = { name, category, description, origin, quantity, price, adderEmail, adderName, image }
-    
-            // console.log(newFood);
-    
-            // sending data to the server
-            fetch(`https://restaurant-management-server-flax.vercel.app/foods/${_id}`, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(updatedFood)
+        e.preventDefault();
+        const form = e.target;
+
+        const name = form.name.value;
+        const category = form.category.value;
+        const description = form.description.value;
+        const origin = form.origin.value;
+        const quantity = form.quantity.value;
+        const price = form.price.value;
+        const adderEmail = form.adderEmail.value;
+        const adderName = form.adderName.value;
+        const image = form.image.value;
+
+        const updatedFood = { name, category, description, origin, quantity, price, adderEmail, adderName, image }
+
+        // console.log(newFood);
+
+        // sending data to the server
+        fetch(`https://restaurant-management-server-flax.vercel.app/foods/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedFood)
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                // console.log("Food Updated Successfully in DB", data);
+
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Food Updated Successfully in DB',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    });
+
+                    setState(!state);
+                }
             })
-                .then(res => res.json())
-                .then(data => {
-    
-                    // console.log("Food Updated Successfully in DB", data);
-    
-                    if (data.modifiedCount) {
-                        Swal.fire({
-                            title: 'Success!',
-                            text: 'Food Updated Successfully in DB',
-                            icon: 'success',
-                            confirmButtonText: 'Cool'
-                        });
-    
-                        setState(!state);
-                    }
-                })
-        }
+    }
 
     return (
-        <div>
+        <div className="min-h-screen">
             <PageTitle title="MahirRestaurant | Update Food"></PageTitle>
             <div className='lg:w-3/4 mx-auto bg-base-100'>
                 <div className="text-center pt-5">

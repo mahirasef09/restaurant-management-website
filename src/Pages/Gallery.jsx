@@ -12,14 +12,14 @@ const Gallery = () => {
     const slideshowRef = useRef(null);
 
     return (
-        <div>
+        <div className='min-h-screen'>
             <PageTitle title="MahirRestaurant | Gallery"></PageTitle>
             <div className='bg-accent dark:bg-black rounded-tl-full rounded-br-full h-16 mb-5'>
                 <h2 className="text-black dark:text-white text-center text-5xl font-extrabold">My Restaurant Gallery</h2>
             </div>
 
             <div className='flex justify-center'>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                     <div onClick={() => setOpen(true)}>
                         <img className="rounded-3xl w-72 h-72" src="https://i.ibb.co.com/JyvZgQ1/Gallery1.jpg" alt="" />
                     </div>

@@ -4,9 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import PageTitle from "./PageTitle";
 import { AuthContext } from "../Providers/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
-    const { createNewUser, setUser, setLoading, updateUserProfile } = useContext(AuthContext);
+    const { createNewUser, setUser, signInUserWithGoogle, updateUserProfile } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
@@ -67,6 +68,31 @@ const Register = () => {
             });
     }
 
+    const handleGoogleSignIn = () => {
+            signInUserWithGoogle()
+                .then(result => {
+                    const currentUser = result.user;
+                    // console.log(currentUser);
+                    setUser(currentUser);
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Login Successful with Google',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    });
+                    navigate(location?.state ? location.state : "/");
+                })
+                .catch(err => {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: err.message,
+                        icon: 'error',
+                        confirmButtonText: 'Oops'
+                    });
+                    // setLoading(false);
+                })
+        }
+
     return (
         <div>
             <PageTitle title="MahirRestaurant | Register"></PageTitle>
@@ -97,6 +123,11 @@ const Register = () => {
                             <button className="btn btn-neutral">Create Account</button>
                         </div>
                         <div className="divider">or</div>
+                        <div className="form-control">
+                            <button
+                                onClick={handleGoogleSignIn}
+                                className="btn bg-gray-200"><FcGoogle />Continue with Google</button>
+                        </div>
                     </form>
                     <p className='text-center text-xs font-semibold'>Already Have An Account ? <Link className='text-blue-500' to={"/auth/login"}>Login</Link></p>
                 </div>

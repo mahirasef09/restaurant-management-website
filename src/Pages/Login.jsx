@@ -7,7 +7,7 @@ import PageTitle from "./PageTitle";
 import { AuthContext } from "../Providers/AuthProvider";
 
 const Login = () => {
-    const { userLogin, signInUserWithGoogle, setUser, setLoading } = useContext(AuthContext);
+    const { userLogin, signInUserWithGoogle, setUser } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();

@@ -57,7 +57,7 @@ const MyOrders = () => {
     }
 
     return (
-        <div>
+        <div className="min-h-screen">
             <PageTitle title="MahirRestaurant | My Orders"></PageTitle>
             <div className='bg-accent dark:bg-black rounded-tl-full rounded-br-full h-16 mb-5'>
                 <h2 className="text-black dark:text-white text-center text-5xl font-extrabold">My Ordered Items</h2>

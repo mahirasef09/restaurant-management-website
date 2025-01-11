@@ -6,7 +6,7 @@ import AllFoodsCard from './AllFoodsCard';
 import { IoSearchOutline } from 'react-icons/io5';
 
 const AllFoods = () => {
-    const { state, setState } = useContext(AuthContext);
+    const { user, state, setState } = useContext(AuthContext);
     const [foodData, setFoodData] = useState([]);
     const [searchItem, setSearchItem] = useState([]);
     const [searchFoodName, setSearchFoodName] = useState("");
@@ -16,7 +16,7 @@ const AllFoods = () => {
         fetch('https://restaurant-management-server-flax.vercel.app/foods')
             .then(res => res.json())
             .then(data => setFoodData(data))
-    }, [state]);
+    }, [user?.email, state]);
 
 
     const handleSearch = (e) => {
@@ -34,7 +34,7 @@ const AllFoods = () => {
     }, [state]);
 
     return (
-        <div className='w-11/12 mx-auto'>
+        <div className='min-h-screen'>
             <PageTitle title="MahirRestaurant | All Foods"></PageTitle>
 
             <div className='bg-accent dark:bg-black rounded-tl-full rounded-br-full h-16 mb-5'>
@@ -53,7 +53,7 @@ const AllFoods = () => {
             </div>
 
             <div className='flex justify-center'>
-                <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 my-5'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 my-5'>
                     {
                         foodData.map(product => <AllFoodsCard key={product._id} product={product}></AllFoodsCard>)
                     }

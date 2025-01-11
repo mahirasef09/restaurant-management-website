@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className='bg-white dark:bg-black space-y-3'>
-      <header>
+      <header className='sticky top-0 z-50 bg-white shadow-md'>
         <NavBar></NavBar>
       </header>
       <main className='w-11/12 mx-auto'>

@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const WhyUs = () => {
     return (
         <div>
-            <h2 className="text-black dark:text-white text-center text-5xl font-extrabold">Why Us</h2>
-            <div className="hero bg-base-100 min-h-screen">
+            <h2 className="my-10 text-black dark:text-white text-center text-5xl font-extrabold">Why Us</h2>
+            <div className="hero bg-base-200 min-h-screen rounded-lg shadow-2xl">
                 <div className="hero-content flex-col lg:flex-row">
                     <Fade duration={6000}>
                         <img
