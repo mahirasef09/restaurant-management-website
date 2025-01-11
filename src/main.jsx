@@ -23,6 +23,7 @@ import SingleFood from './Pages/SingleFood.jsx';
 import FoodPurchase from './Pages/FoodPurchase.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
 import UpdateFood from './Pages/UpdateFood.jsx';
+import AboutUs from './Pages/AboutUs.jsx';
 
 
 const router = createBrowserRouter([
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "/gallery",
         element: <Gallery></Gallery>
+      },
+      {
+        path: "/aboutUs",
+        element: <AboutUs></AboutUs>
       },
       {
         path: "/myFoods",
