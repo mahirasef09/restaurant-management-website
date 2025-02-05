@@ -31,6 +31,23 @@ At MahirRestaurant, our purpose is to create unforgettable dining experiences by
 10. In server section dotenv is used.
 11. JWT Authentication is used
 
+**Dependencies of this project:**
+*    "axios": "^1.7.9",
+*    "firebase": "^11.1.0",
+*    "localforage": "^1.10.0",
+*    "match-sorter": "^8.0.0",
+*    "moment": "^2.30.1",
+*    "react": "^18.3.1",
+*    "react-awesome-reveal": "^4.3.1",
+*    "react-dom": "^18.3.1",
+*    "react-helmet": "^6.1.0",
+*    "react-icons": "^5.4.0",
+*    "react-router-dom": "^7.1.0",
+*    "react-tooltip": "^5.28.0",
+*    "sort-by": "^1.2.0",
+*    "sweetalert2": "^11.15.3",
+*    "yet-another-react-lightbox": "^3.21.7"
+
 # **Requirement Document Link:**
 https://docs.google.com/document/d/1Xkx5txRkzVsD6Kdzj4iYPdOFcFANKdvEQnrvPqBHjqI/edit?usp=drive_link
 or,

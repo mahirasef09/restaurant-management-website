@@ -2,12 +2,9 @@ import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import PageTitle from "./PageTitle";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../Hooks/useAxiosSecure";
-import { Link } from "react-router-dom";
 
 const AddFood = () => {
     const { user, state, setState } = useContext(AuthContext);
-    const axiosSecure = useAxiosSecure();
 
     const handleAddFood = (e) => {
         e.preventDefault();
